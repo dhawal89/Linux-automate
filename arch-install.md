@@ -1,8 +1,8 @@
 # Install Arch Linux Step By Step
 
-# Boot in to Live Iso and enter command's
+**Boot in to Live Iso and enter command's**
 
-# Locate disk
+-Locate disk-
 -----------------------------------------
 fdisk -l
 
@@ -10,70 +10,70 @@ cfdisk
 
 select dos and partition the disk space
 
-# Format
+-Format-
 -----------------------------------------
 mkfs.ext4 /dev/sda1
 
-# Mount disk
+-Mount disk-
 -----------------------------------------
-# mount /dev/sda1 /mnt  [enter]
+mount /dev/sda1 /mnt  [enter]
 
-Install OS on HDD
+-Install OS on HDD-
 -----------------------------------------
-# pacstrap /mnt base base-devel [enter]
+pacstrap /mnt base base-devel [enter]
 
-# genfstab /mnt >> /mnt/etc/fstab
+genfstab /mnt >> /mnt/etc/fstab
 
-# cat /mnt/etc/fstab
+cat /mnt/etc/fstab
 
-Change Shell to Arch Linux bash
+-Change Shell to Arch Linux bash-
 -----------------------------------------
-# arch-chroot /mnt /bin/bash
+arch-chroot /mnt /bin/bash
 
-Select Language:
+-Select Language:-
 -----------------------------------------
-# nano /etc/locale.gen
+nano /etc/locale.gen
 
 uncomment line:
 en_US.UTF-8 UTF-8
 
-# nano /etc/locale.conf
+nano /etc/locale.conf
 
 Add line:
 LANG=en_US.UTF-8
 
-Select Timezone
+-Select Timezone-
 -----------------------------------------
-# ln /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
+ln /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
 
-# hwclock --systohc --utc
+hwclock --systohc --utc
 
-Set Root Password
+-Set Root Password-
 -----------------------------------------
-# passwd
+passwd
 
 ****
 
-Set Hostname
+-Set Hostname-
 -----------------------------------------
 nano /etc/hostname
 
-Enable DHCP Service
+-Enable DHCP Service-
 -----------------------------------------
-# systemctl enable dhcpcd
+systemctl enable dhcpcd
 
-Install Grub Boot Loader
+-Install Grub Boot Loader-
 -----------------------------------------
-# pacman -S grub os-prober
+pacman -S grub os-prober
 
-# grub-install /dev/sda
+grub-install /dev/sda
 
-# grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg
 
-# exit
+exit
 
-Unmount the Disk
+-Unmount the Disk-
 -----------------------------------------
-# umount /mnt
+umount /mnt
 
-# reboot
+reboot
